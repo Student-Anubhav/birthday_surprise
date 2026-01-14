@@ -70,17 +70,17 @@
     </style>
 </head>
 <body>
-    <h1>Happy Birthday!</h1>
-    <p>Please Click this Reveal Surprise button for a little surprise...</p>
-    <button onclick="revealSurprise()">Reveal Surprise</button>
+    <h1>Happy Birthday Saumya!</h1>
+    <p>Please Click on Hii Saumya for a small surprise...</p>
+    <button onclick="revealSurprise()">Hii Saumya</button>
     <div id="surprise" class="surprise">
-        <p>🎉"Happy Birthday! 🎉 </P>
+        <p>🎉"Happy Birthday Saumya! 🎉 </P>
 
-        <p> I know our bond is not so strong but you are one of my special so i thought that I should do something special for you....</p>
+        <p> I know that our bond has been breaked but still you are one of my special person so i thought that I should do something special for you....</p>
        <p>Aaj ka din sirf tumhare liye hai,
 jitna tum muskurate ho, utna hi khushiyan tumhare saath ho! 🌸 </p>
-<p>Surprise video dekho aur enjoy karo, because YOU deserve all the happiness in the world! ❤️🎂 🎂</p>
-        <div class="video-container">
+<p> please listen the whole poetry ❤️🎂 🎂</p>
+        <div class="video-container" id="videoBox"></div>
   <iframe
     src="https://www.youtube.com/embed/KWYEpEYD2M8"
 "
@@ -92,29 +92,39 @@ jitna tum muskurate ho, utna hi khushiyan tumhare saath ho! 🌸 </p>
 </div>
 
     </div>
+<script>
+let flowerInterval;
 
-    <script>
-        let flowerInterval; // To store the interval ID
+function revealSurprise() {
+    const surprise = document.getElementById('surprise');
+    surprise.style.display = 'block';
 
-        function revealSurprise() {
-            const surprise = document.getElementById('surprise');
-            surprise.style.display = 'block';
-            
-            // Start continuous flower fall
-            if (!flowerInterval) { // Prevent multiple intervals if clicked again
-                flowerInterval = setInterval(() => {
-                    const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹']; // Array of flower emojis
-                    const flower = document.createElement('div');
-                    flower.className = 'flower';
-                    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)]; // Random flower emoji
-                    flower.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-                    document.body.appendChild(flower);
-                    
-                    // Remove flower after animation (5 seconds)
-                    setTimeout(() => flower.remove(), 5000);
-                }, 500); // Add a new flower every 0.5 seconds
-            }
-        }
-    </script>
+    // 🔥 autoplay video on button click
+    const videoBox = document.getElementById('videoBox');
+    videoBox.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/KWYEpEYD2M8?autoplay=1&mute=1"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
+
+    // 🌸 flower animation
+    if (!flowerInterval) {
+        flowerInterval = setInterval(() => {
+            const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹'];
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }, 500);
+    }
+}
+</script>
+
 </body>
 </html>
