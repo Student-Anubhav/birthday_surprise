@@ -108,41 +108,41 @@
   </div>
 
   <script>
-    let flowerInterval;
-    let videoLoaded = false;
+let flowerInterval;
 
-    function revealSurprise() {
-      document.getElementById("surprise").style.display = "block";
+function revealSurprise() {
+    const surprise = document.getElementById('surprise');
+    surprise.style.display = 'block';
 
-      // ✅ Load video ONLY ONCE
-      if (!videoLoaded) {
-        document.getElementById("videoBox").innerHTML = `
-          <iframe
-            src="https://www.youtube.com/embed/KWYEpEYD2M8?autoplay=1&mute=0"
-            title="YouTube video"
-            frameborder="0"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        `;
-        videoLoaded = true;
-      }
+    const videoBox = document.getElementById('videoBox');
+    videoBox.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/KWYEpEYD2M8"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <p style="margin-top:10px; font-size:14px; color:#555;">
+        ▶️ Tap play button to watch with sound
+      </p>
+    `;
 
-      // 🌸 Flower animation
-      if (!flowerInterval) {
+    // 🌸 flowers
+    if (!flowerInterval) {
         flowerInterval = setInterval(() => {
-          const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹'];
-          const flower = document.createElement("div");
-          flower.className = "flower";
-          flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-          flower.style.left = Math.random() * 100 + "vw";
-          document.body.appendChild(flower);
-
-          setTimeout(() => flower.remove(), 5000);
+            const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹'];
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
         }, 500);
-      }
     }
-  </script>
+}
+</script>
+
 
 </body>
 </html>
